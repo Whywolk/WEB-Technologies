@@ -14,7 +14,14 @@
             </p> 
             <hr>
             <form class="forms">
-                <input id="btn" type="button" value="New month" onclick="addForm()">
+                <div id="firstInputs">
+                    <input id="btn" type="button" value="New month" onclick="addForm()">
+                    <select id="currency" onchange="getCurrency()">
+                        <option value="Ruble" selected="selected">₽</option>
+                        <option value="Dollar">$</option>
+                        <option value="Euro">€</option>
+                    </select>
+                </div>
             </form>
         </div>
     </body>
