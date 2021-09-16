@@ -6,14 +6,16 @@ function calcSalary()
     var monthCounts = 3;
 
     var count;
-    var meanSalary = 0;
+    var averageSalary = 0;
     for(count = 0; count < salForm.length && count < monthCounts; count++)
     {
-        meanSalary += parseInt(salForm[count].value);
+        averageSalary += parseInt(salForm[count].value);
     }
-    meanSalary /= count;
+    averageSalary /= count;
     var salaryField = document.getElementById("salaryVal");
-    salaryField.innerHTML = meanSalary.toPrecision(3) + " Rubles for last " + count + " month";
+    salaryField.innerHTML = averageSalary.toFixed(3);
+    var description = document.getElementById("description");
+    description.innerHTML = " Rubles for last " + count + " month";
 }
 
 function addForm()

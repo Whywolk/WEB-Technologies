@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Calculate mean salary</title>
+        <title>Calculate average salary</title>
+        <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="logic.js"></script>
     </head>
     <body>
-        <p>
-            Mean salary:
-            <span id='salaryVal'></span>
-        </p> 
-        <form>
-            <input id="btn" type="button" value="New month" onclick="addForm()">
-        </form>
+        <div class="center">
+            <p class="salaryView">
+                Average salary:
+                <span id='salaryVal'></span>
+                <span id='description'></span>
+            </p> 
+            <hr>
+            <form class="forms">
+                <input id="btn" type="button" value="New month" onclick="addForm()">
+            </form>
+        </div>
     </body>
 </html>
