@@ -1,6 +1,6 @@
 .center {
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 20%;
+    margin-right: 20%;
     background: #FFFFFF;
     border: 2px solid #E8E8E8;
 }
@@ -13,15 +13,62 @@
 }
 
 .salaryView {
-    margin-left: 20%;
+    margin-left: 15%;
+    margin-right: 10%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 14pt;
 }
 
+.inputDiv {
+    margin-top: 5%;
+}
+
+.inputMoney {
+    text-align: right;
+    width: 10em;
+    font-size: 12pt;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 #salaryVal {
+    margin-left: 10%;
     font-style: italic;
     font-weight: bold;
     font-size: 15pt;
+}
+
+#salaryCurrency {
+    margin-right: 5%;
+}
+
+#btn {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 12pt;
+    border-radius: 3px;
+    border-width: 2px;
+}
+
+#btn:hover {
+    background-color: #c2c2c2;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    font-size: 12pt;
+    border-radius: 3px;
+    border-width: 2px;
+}
+
+#currencySelect {
+    padding: 6px 10px;
+    color: #000000;
+    text-align: center;
+    font-size: 12pt;
+    border-radius: 3px;
+    border-width: 2px;
+    border-color: #000000;
 }
 
 body {

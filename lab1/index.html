@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
         <title>Calculate average salary</title>
         <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="logic.js"></script>
     </head>
-    <body>
+    <body onload="setCurrency()">
         <div class="center">
             <p class="salaryView">
                 Average salary:
-                <span id='salaryVal'></span>
-                <span id='description'></span>
+                <span id="salaryVal"></span>
+                <span id="salaryCurrency"></span>
+                <span id="description"></span>
             </p> 
             <hr>
             <form class="forms">
                 <div id="firstInputs">
                     <input id="btn" type="button" value="New month" onclick="addForm()">
-                    <select id="currency" onchange="getCurrency()">
-                        <option value="Ruble" selected="selected">₽</option>
+                    <select id="currencySelect" onchange="setCurrency()">
+                        <option value="Ruble" selected>₽</option>
                         <option value="Dollar">$</option>
                         <option value="Euro">€</option>
                     </select>
