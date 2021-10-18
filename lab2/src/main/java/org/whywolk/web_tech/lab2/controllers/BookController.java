@@ -25,7 +25,12 @@ public class BookController {
 	public String index(Model model) {
 		return "index";
 	}
-	
+
+	@GetMapping("/contacts")
+	public String index() {
+		return "contacts";
+	}
+
 	@GetMapping("/books")
 	public String showAllBooks(Model model) {
 		Map<String, List<Book>> map = Map.ofEntries(Map.entry("allBooksList", bookService.findAll()));
@@ -52,21 +57,12 @@ public class BookController {
 
 	@PostMapping("/add")
 	public String addBook(@ModelAttribute("bookForm") Book bookForm, Model model) {
-//		Book book;
-//
-//		if (bookForm.getId() == null) {
-//			book = new Book(null, bookForm.getTitle(), bookForm.getAuthor(), bookForm.getDescription(), null);
+//		if (bookService.save(bookForm) == null)
+//		{
+//			model.addAttribute("booksError", "При создании книги произошла ошибка");
+//			return "addOrUpdate";
 //		}
-//		else {
-//			book = new Book(bookForm.getId(), bookForm.getTitle(), bookForm.getAuthor(), bookForm.getDescription(), null);
-//		}
-
-		if (bookService.save(bookForm) == null)
-		{
-			model.addAttribute("newsError", "При создании новости произошла ошибка");
-			return "addOrUpdate";
-		}
-
+		bookService.save(bookForm);
 		return "redirect:/books";
 	}
 
