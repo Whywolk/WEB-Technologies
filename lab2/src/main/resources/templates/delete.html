@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/resources/css/bootstrap-5.1.3-dist/bootstrap.min.css}" rel="stylesheet" />
+</head>
+
+<body>
+<!--	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">-->
+
+<!--	</nav>-->
+
+	<div class="page">
+		<div class="forms">
+			<form th:action="@{/delete(id=${bookForm.id})}" method="post">
+<!--				<input type="hidden" name="id" th:value="${bookForm.id}">-->
+
+				<div class="text">
+					<span class="title">Название книги</span>
+					<div class="inner">
+						<span th:text="${bookForm.title}"></span>
+					</div>
+				</div>
+
+				<div class="text">
+					<span class="author">Автор</span>
+					<div class="inner">
+						<span th:text="${bookForm.author}"></span>
+					</div>
+				</div>
+
+				<div class="text">
+					<span class="description">Описание</span>
+					<div class="inner">
+						<span th:text="${bookForm.description}"></span>
+					</div>
+				</div>
+
+				<div class="buttons">
+					<button class="button" type="submit">Удалить!</button>
+					<button class="button" type="button">
+						<a th:href="@{/books}">Отмена!</a>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+    <footer>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8"> 
+    <title>Books</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{/resources/css/bootstrap-5.1.3-dist/bootstrap.min.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<header>
+	</header>
+
+	<div class="page">
+		<div class="books_list">
+			<div th:if="${allBooksList.isEmpty()}">
+            	<div class="no_books">
+                	<span>Книг в каталоге нет</span>
+                </div>
+ 	        </div>
+ 	        <div th:unless="${allBooksList.isEmpty()}">
+				<div th:each="book : ${allBooksList}">
+					<div class="book_block">
+						<a th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
+						<span th:text="${book.author}"></span>
+
+						<form th:action="@{/update}">
+							<input type="hidden" name="id" th:value="${book.id}">
+							<button class="change" type="submit">Изменить</button>
+						</form>
+						<form th:action="@{/delete}">
+							<input type="hidden" name="id" th:value="${book.id}">
+							<button class="delete" type="submit">Удалить</button>
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<div>
+			<button class="add">
+				<a href="/add">Добавить книгу</a>
+			</button>
+		</div>
+	</div>
+
+    <footer>
+    </footer>
+</body>
+
+</html>
