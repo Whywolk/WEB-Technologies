@@ -32,3 +32,6 @@ dependency-reduced-pom.xml
 */.mvn
 */.settings
 */mvnw*
+
+
+*bootstrap*
