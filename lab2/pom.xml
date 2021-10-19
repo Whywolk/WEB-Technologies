@@ -11,8 +11,8 @@
 	<groupId>org.whywolk.web_tech</groupId>
 	<artifactId>lab2</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Woodwork shop site</name>
-	<description>Woodwork shop site</description>
+	<name>Book library</name>
+	<description></description>
 	
 	<properties>
 		<java.version>16</java.version>
@@ -53,6 +53,7 @@
         </dependency>
 	</dependencies>
 
+	<packaging>war</packaging>
 	<build>
 		<plugins>
 			<plugin>

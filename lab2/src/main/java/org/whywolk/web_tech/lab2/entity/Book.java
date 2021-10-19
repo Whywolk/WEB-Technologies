@@ -20,17 +20,13 @@ public class Book {
 	@Column(name = "description")
 	private String description;
 	
-	@Column(name = "img_src")
-	private String img_src;
-	
 	public Book() {}
 
-	public Book(Long id, String title, String author, String description, String img_src) {
+	public Book(Long id, String title, String author, String description) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.description = description;
-		this.img_src = img_src;
 	}
 
 	public Long getId() {
@@ -63,13 +59,5 @@ public class Book {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getImg_src() {
-		return img_src;
-	}
-
-	public void setImg_src(String img_src) {
-		this.img_src = img_src;
 	}
 }

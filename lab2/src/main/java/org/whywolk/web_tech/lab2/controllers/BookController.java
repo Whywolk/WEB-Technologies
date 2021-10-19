@@ -57,11 +57,6 @@ public class BookController {
 
 	@PostMapping("/add")
 	public String addBook(@ModelAttribute("bookForm") Book bookForm, Model model) {
-//		if (bookService.save(bookForm) == null)
-//		{
-//			model.addAttribute("booksError", "При создании книги произошла ошибка");
-//			return "addOrUpdate";
-//		}
 		bookService.save(bookForm);
 		return "redirect:/books";
 	}

@@ -1,12 +1,9 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/books
-
     username: postgres
     password: anosore
-
     driver-class-name: org.postgresql.Driver
-
   jpa:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect

@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<nav th:insert="~{index :: header}"></nav>
+	<nav th:insert="~{index :: head}"></nav>
 
 	<div class="container">
 		<div class="jumbotron">
@@ -19,19 +19,21 @@
  	        <div th:unless="${allBooksList.isEmpty()}">
 				<div class="book_block" th:each="book : ${allBooksList}">
 					<hr>
-					<div class="small_description">
-						<a class="h3" th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
-						<h4 class="text-muted" th:text="${book.author}"></h4>
-					</div>
-					<div class="buttons_update_delete">
-						<form th:action="@{/update}">
-							<input type="hidden" name="id" th:value="${book.id}">
-							<button type="submit" class="btn btn-outline-primary">Изменить</button>
-						</form>
-						<form th:action="@{/delete}">
-							<input type="hidden" name="id" th:value="${book.id}">
-							<button type="submit" class="btn btn-outline-primary">Удалить</button>
-						</form>
+					<div class="row">
+						<div class="small_description col-8">
+							<a class="h3" th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
+							<h4 class="text-muted" th:text="${book.author}"></h4>
+						</div>
+						<div class="buttons_update_delete col-4">
+							<form th:action="@{/update}">
+								<input type="hidden" name="id" th:value="${book.id}">
+								<button type="submit" class="btn btn-outline-primary">Изменить</button>
+							</form>
+							<form th:action="@{/delete}">
+								<input type="hidden" name="id" th:value="${book.id}">
+								<button type="submit" class="btn btn-outline-primary">Удалить</button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>	
@@ -41,5 +43,6 @@
 		</div>
 	</div>
 
+	<footer th:insert="~{index :: foot}"></footer>
 </body>
 </html>
