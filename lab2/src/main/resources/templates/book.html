@@ -2,39 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<title th:unless="${curBook.isPresent()}">Книги не существует</title>
+	<title th:if="${curBook.isPresent()}" th:text="${curBook.get().title}"></title>
 	<th:block th:insert="~{index :: imports}"></th:block>
 </head>
 
 <body>
 	<nav th:insert="~{index :: header}"></nav>
 
-	<div class="page">
+	<div class="container">
+		<div class="jumbotron">
 			<div th:unless="${curBook.isPresent()}">
-            	<div class="noBook">
-                	<span>Книги не существует</span>
-                </div>
- 	        </div>
- 	        <div th:if="${curBook.isPresent()}">
-				<div class="bookDescription">
-					<div class="title">
-						<p>Название:</p>
-						<span th:text="${curBook.get().title}"></span>
-					</div>
-					<div class="author">
-						<p>Автор:</p>
-						<span th:text="${curBook.get().author}"></span>
-					</div>
-					<div class="description">
-						<p>Описание:</p>
-						<span th:text="${curBook.get().description}"></span>
-					</div>
+				<h1>Книги не существует</h1>
+			</div>
+			<div th:if="${curBook.isPresent()}">
+				<div class="title">
+					<h1 th:text="${curBook.get().title}"></h1>
 				</div>
-			</div>	
+				<div class="author">
+					<hr>
+					<h5 class="text-muted">Автор</h5>
+					<h5 th:text="${curBook.get().author}"></h5>
+				</div>
+				<div class="description">
+					<hr>
+					<h6>Описание</h6>
+					<p class="lead" th:each="line : ${curBook.get().description.split('\r\n')}" th:text="${line}"></p>
+				</div>
+			</div>
+			<a class="btn btn-lg btn-primary" href="/books" role="button">Обратно к списку книг »</a>
 		</div>
 	</div>
-
-    <footer>
-    </footer>
 </body>
-
 </html>

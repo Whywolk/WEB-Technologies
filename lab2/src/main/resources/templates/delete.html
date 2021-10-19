@@ -2,43 +2,39 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<title>Удалить книгу</title>
 	<th:block th:insert="~{index :: imports}"></th:block>
 </head>
 
 <body>
 	<nav th:insert="~{index :: header}"></nav>
 
-	<div class="page">
-		<div class="forms">
+	<div class="container">
+		<div class="jumbotron">
 			<form th:action="@{/delete(id=${bookForm.id})}" method="post">
 <!--				<input type="hidden" name="id" th:value="${bookForm.id}">-->
-
-				<div class="text">
-					<span class="title">Название книги</span>
-					<div class="inner">
-						<span th:text="${bookForm.title}"></span>
-					</div>
+				<h1>Удалить книгу</h1>
+				<div class="title">
+					<hr>
+					<h4>Название книги</h4>
+					<h4 th:text="${bookForm.title}"></h4>
 				</div>
 
-				<div class="text">
-					<span class="author">Автор</span>
-					<div class="inner">
-						<span th:text="${bookForm.author}"></span>
-					</div>
+				<div class="author">
+					<hr>
+					<h4>Автор</h4>
+					<h4 th:text="${bookForm.author}"></h4>
 				</div>
 
-				<div class="text">
-					<span class="description">Описание</span>
-					<div class="inner">
-						<span th:text="${bookForm.description}"></span>
-					</div>
+				<div class="description">
+					<hr>
+					<h4>Описание</h4>
+					<p class="lead" th:each="line : ${bookForm.description.split('\r\n')}" th:text="${line}"></p>
 				</div>
 
 				<div class="buttons">
-					<button class="button" type="submit">Удалить!</button>
-					<button class="button" type="button">
-						<a th:href="@{/books}">Отмена!</a>
-					</button>
+					<button class="btn btn-outline-primary" type="submit">Удалить</button>
+					<a class="btn btn-outline-primary" href="/books" role="button">Отмена</a>
 				</div>
 			</form>
 		</div>

@@ -2,47 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Books</title>
+    <title>Список книг</title>
 	<th:block th:insert="~{index :: imports}"></th:block>
 </head>
 
 <body>
 	<nav th:insert="~{index :: header}"></nav>
 
-	<div class="page">
-		<div class="books_list">
-			<div th:if="${allBooksList.isEmpty()}">
-            	<div class="no_books">
-                	<span>Книг в каталоге нет</span>
-                </div>
+	<div class="container">
+		<div class="jumbotron">
+			<p class="h1">Каталог книг</p>
+			<div class="no_books" th:if="${allBooksList.isEmpty()}">
+				<p class="h4">Книг в каталоге нет</p>
  	        </div>
- 	        <div th:unless="${allBooksList.isEmpty()}">
-				<div th:each="book : ${allBooksList}">
-					<div class="book_block">
-						<a th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
-						<span th:text="${book.author}"></span>
 
+ 	        <div th:unless="${allBooksList.isEmpty()}">
+				<div class="book_block" th:each="book : ${allBooksList}">
+					<hr>
+					<div class="small_description">
+						<a class="h3" th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
+						<h4 class="text-muted" th:text="${book.author}"></h4>
+					</div>
+					<div class="buttons_update_delete">
 						<form th:action="@{/update}">
 							<input type="hidden" name="id" th:value="${book.id}">
-							<button class="change" type="submit">Изменить</button>
+							<button type="submit" class="btn btn-outline-primary">Изменить</button>
 						</form>
 						<form th:action="@{/delete}">
 							<input type="hidden" name="id" th:value="${book.id}">
-							<button class="delete" type="submit">Удалить</button>
+							<button type="submit" class="btn btn-outline-primary">Удалить</button>
 						</form>
 					</div>
 				</div>
 			</div>	
 		</div>
 		<div>
-			<button class="add">
-				<a href="/add">Добавить книгу</a>
-			</button>
+			<a class="btn btn-lg btn-primary" href="/add" role="button">Добавить книгу</a>
 		</div>
 	</div>
 
-    <footer>
-    </footer>
 </body>
-
 </html>

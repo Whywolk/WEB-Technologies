@@ -1,46 +1,49 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 
 <head>
+	<title th:if="${bookForm.id == null}">Добавить описание книги</title>
+	<title th:if="${bookForm.id != null}">Изменить описание книги</title>
 	<th:block th:insert="~{index :: imports}"></th:block>
 </head>
 
 <body>
 	<nav th:insert="~{index :: header}"></nav>
 
-	<div class="page">
-		<div class="forms">
+	<div class="container">
+		<div class="jumbotron">
 			<form th:action="@{/add}" method="post">
+				<h1 th:if="${bookForm.id == null}">Добавить описание книги</h1>
+				<h1 th:if="${bookForm.id != null}">Изменить описание книги</h1>
 				<div th:if="${bookForm.id != null}">
 					<input type="hidden" th:field="${bookForm.id}">
 				</div>
 
 				<div class="input">
-					<span class="title">Название книги</span>
+					<h5>Название книги</h5>
 					<div class="field">
-						<input type="text" th:field="${bookForm.title}">
+						<input class="form-control" type="text" th:field="${bookForm.title}">
 					</div>
 				</div>
 
 				<div class="input">
-					<span class="author">Автор</span>
+					<h5>Автор</h5>
 					<div class="field">
-						<input type="text" th:field="${bookForm.author}">
+						<input class="form-control" type="text" th:field="${bookForm.author}">
 					</div>
 				</div>
 
 				<div class="input">
-					<span class="description">Описание</span>
+					<h5>Описание</h5>
 					<div class="field">
-						<textarea type="text" th:field="${bookForm.description}"></textarea>
+						<textarea class="form-control" type="text" th:field="${bookForm.description}"></textarea>
 					</div>
 				</div>
 
-				<div class="buttons" th:if="${bookForm.id == null}">
-					<button class="button" type="submit">Добавить!</button>
-				</div>
-				<div class="buttons" th:unless="${bookForm.id == null}">
-					<button class="button" type="submit">Изменить!</button>
+				<div class="buttons">
+					<button th:if="${bookForm.id == null}" type="submit" class="btn btn-outline-primary">Добавить</button>
+					<button th:unless="${bookForm.id == null}" type="submit" class="btn btn-outline-primary">Изменить</button>
+					<a class="btn btn-outline-primary" href="/books" role="button">Отмена</a>
 				</div>
 			</form>
 		</div>

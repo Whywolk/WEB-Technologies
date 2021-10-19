@@ -22,12 +22,12 @@ public class BookController {
 	BookService bookService;
 	
 	@GetMapping("/")
-	public String index(Model model) {
+	public String index() {
 		return "index";
 	}
 
 	@GetMapping("/contacts")
-	public String index() {
+	public String contacts() {
 		return "contacts";
 	}
 
@@ -81,7 +81,7 @@ public class BookController {
 	}
 
 	@PostMapping("/delete")
-	public String deleteBook(@RequestParam(value="id") Long id)
+	public String deleteBook(@RequestParam(name="id") Long id)
 	{
 		bookService.deleteById(id);
 

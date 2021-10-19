@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-    <title>Welcome!</title>
+    <title>Добро пожаловать!</title>
     <th:block th:fragment="imports">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,29 +26,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Домой</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/books">Books</a>
+                <a class="nav-link" href="/books">Список книг</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contacts">Contacts</a>
+                <a class="nav-link" href="/add">Добавить новую книгу</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/add">Add new book</a>
+            <a class="nav-link" href="/contacts">Контакты</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<main role="main" class="container">
-    <div class="jumbotron">
-        <h1>Электронная библиотека</h1>
-        <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser's viewport.</p>
-        <a class="btn btn-lg btn-primary" href="/books" role="button">Посмотреть каталог книг »</a>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Электронная библиотека</h1>
+            <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser's viewport.</p>
+            <a class="btn btn-lg btn-primary" href="/books" role="button">Посмотреть каталог книг »</a>
+        </div>
     </div>
-</main>
 
 </body>
 </html>
