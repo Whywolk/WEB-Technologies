@@ -9,26 +9,26 @@
 <body>
 	<nav th:insert="~{index :: head}"></nav>
 
-	<div class="container">
+	<div class="container content">
 		<div class="jumbotron">
 			<form th:action="@{/delete(id=${bookForm.id})}" method="post">
 <!--				<input type="hidden" name="id" th:value="${bookForm.id}">-->
 				<h1>Удалить книгу</h1>
 				<div class="title">
 					<hr>
-					<h4>Название книги</h4>
-					<h4 th:text="${bookForm.title}"></h4>
+					<h4 class="text-muted">Название книги</h4>
+					<h5 th:text="${bookForm.title}"></h5>
 				</div>
 
 				<div class="author">
 					<hr>
-					<h4>Автор</h4>
-					<h4 th:text="${bookForm.author}"></h4>
+					<h4 class="text-muted">Автор</h4>
+					<h5 th:text="${bookForm.author}"></h5>
 				</div>
 
 				<div class="description">
 					<hr>
-					<h4>Описание</h4>
+					<h4 class="text-muted">Описание</h4>
 					<p class="lead" th:each="line : ${bookForm.description.split('\r\n')}" th:text="${line}"></p>
 				</div>
 

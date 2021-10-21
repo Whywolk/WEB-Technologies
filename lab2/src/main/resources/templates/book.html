@@ -10,14 +10,14 @@
 <body>
 	<nav th:insert="~{index :: head}"></nav>
 
-	<div class="container">
+	<div class="container content">
 		<div class="jumbotron">
 			<div th:unless="${curBook.isPresent()}">
 				<h1>Книги не существует</h1>
 			</div>
 			<div th:if="${curBook.isPresent()}">
 				<div class="title">
-					<h1 th:text="${curBook.get().title}"></h1>
+					<h1 th:text="'&quot' + ${curBook.get().title} + '&quot'"></h1>
 				</div>
 				<div class="author">
 					<hr>

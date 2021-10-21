@@ -9,7 +9,7 @@
 <body>
 	<nav th:insert="~{index :: head}"></nav>
 
-	<div class="container">
+	<div class="container content">
 		<div class="jumbotron">
 			<p class="h1">Каталог книг</p>
 			<div class="no_books" th:if="${allBooksList.isEmpty()}">
@@ -21,7 +21,7 @@
 					<hr>
 					<div class="row">
 						<div class="small_description col-8">
-							<a class="h3" th:href="@{book(id=${book.id})}" th:text="${book.title}"></a>
+							<a class="h3" th:href="@{book(id=${book.id})}" th:text="'&quot' + ${book.title} + '&quot'"></a>
 							<h4 class="text-muted" th:text="${book.author}"></h4>
 						</div>
 						<div class="buttons_update_delete col-4">
