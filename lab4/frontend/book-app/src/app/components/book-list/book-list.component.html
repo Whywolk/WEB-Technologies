@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <div>
+    <h1>Каталог книг</h1>
+    <div class="books container">
+      <div class="book small_description" *ngFor="let book of books">
+        <hr>
+        <a class="h3" routerLink="/book/{{book.id}}" >"{{ book.title }}"</a>
+        <h4 class="text-muted">{{ book.author }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
