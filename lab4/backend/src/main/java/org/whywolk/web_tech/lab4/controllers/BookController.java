@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
+@RequestMapping("api")
 public class BookController {
 
 	@Autowired
