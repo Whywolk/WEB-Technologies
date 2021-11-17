@@ -1,0 +1,57 @@
+<div class="jumbotron">
+  <div *ngIf="!isChanging">
+    <h1>Описание книги</h1>
+    <div>
+      <label><strong>Название:</strong></label>
+      {{ book.title }}
+    </div>
+    <div>
+      <label><strong>Автор:</strong></label>
+      {{ book.author }}
+    </div>
+    <div>
+      <label><strong>Описание:</strong></label>
+      <div style="white-space: pre-line">{{ book.description }}</div>
+    </div>
+
+    <hr>
+    <button class="btn btn-success mr-2" (click)="change()" >Изменить</button>
+    <button class="btn btn-danger" (click)="deleteBook()">Удалить</button>
+  </div>
+
+
+  <div *ngIf="isChanging">
+    <h1>Изменить описание книги</h1>
+    <div class="form-group">
+      <label for="title"><strong>Название</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="title" required [(ngModel)]="book.title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="author"><strong>Автор</strong></label>
+      <input
+        type="text"
+        class="form-control"
+        id="author"
+        required [(ngModel)]="book.author"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description"><strong>Описание</strong></label>
+      <textarea
+        class="form-control "
+        id="description"
+        required [(ngModel)]="book.description">
+        </textarea>
+    </div>
+    <hr>
+    <div *ngIf="this.message" class="alert alert-danger" role="alert">{{this.message}}</div>
+    <button (click)="updateBook()" class="btn btn-success mr-2">Изменить</button>
+    <button (click)="cancel()" class="btn btn-primary">Отмена</button>
+  </div>
+</div>
