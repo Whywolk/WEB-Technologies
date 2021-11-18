@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Book } from "../models/book.model";
 
-const apiUrl = 'http://localhost:8080/api'
+const apiUrl = 'http://localhost:8081/lab4/api'
 
 @Injectable({
   providedIn: 'root'
