@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'book/:id', component: BookDetailsComponent },
   { path: 'add', component: AddBookComponent },
   { path: 'about', component: AboutComponent },
-  { path: '**', component: PageNotFoundComponent}
+  { path: '**', component: PageNotFoundComponent},
+  { path: 'page_not_found', component: PageNotFoundComponent}
 ];
 
 @NgModule({

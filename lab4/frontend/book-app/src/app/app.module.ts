@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,7 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HttpErrorInterceptor } from "./interceptors/http-error.interceptor";
 
 
 @NgModule({
@@ -29,7 +30,11 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpErrorInterceptor,
+    multi: true
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

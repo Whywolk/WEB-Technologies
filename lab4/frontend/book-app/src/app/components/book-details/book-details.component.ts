@@ -56,7 +56,9 @@ export class BookDetailsComponent implements OnInit {
           this.book = data;
           this.isChanging = false;
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          console.error(e);
+        }
       });
   }
 
@@ -69,6 +71,7 @@ export class BookDetailsComponent implements OnInit {
         },
         error: (e) => {
           console.log(e);
+          this.router.navigate(['/404']);
         }
       });
   }

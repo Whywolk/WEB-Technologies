@@ -32,7 +32,9 @@ export class AddBookComponent implements OnInit {
           this.book = data;
           this.isBookAdded = true;
         },
-        error: (e) => console.error(e)
-        })
+        error: (e) => {
+          console.error(e);
+        }
+      })
   }
 }

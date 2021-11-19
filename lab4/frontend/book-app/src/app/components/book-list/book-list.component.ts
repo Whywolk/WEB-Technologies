@@ -25,7 +25,9 @@ export class BookListComponent implements OnInit {
           this.books = data;
           console.log(data);
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          console.error(e);
+        }
       })
   }
 
